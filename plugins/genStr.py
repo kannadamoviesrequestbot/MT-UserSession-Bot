@@ -23,8 +23,9 @@ Any Doubt @Mo_Tech_Group
 
 For Ganerating String Session Send Me Your `API_ID` 🐿
 """
+
      buttons = [[
-        InlineKeyboardButton('🖥️Tutorial Video🖥️', url='https://youtu.be/WUN_12-dYOM')
+        InlineKeyboardButton('🖥️Tutorial Video🖥️', url='https://youtu.be/WUN_12-dYOM'),
         ],[
         InlineKeyboardButton('📕 About', callback_data='about'),
         InlineKeyboardButton('Close ❌️', callback_data='help')
@@ -224,7 +225,7 @@ async def help_cb(c, m, cb=True):
 """
 
     buttons = [[
-        InlineKeyboardButton('🖥️Tutorial Video🖥️', url='https://youtu.be/WUN_12-dYOM')
+        InlineKeyboardButton('🖥️Tutorial Video🖥️', url='https://youtu.be/WUN_12-dYOM'),
         ],[
         InlineKeyboardButton('📕 About', callback_data='about'),
         InlineKeyboardButton('Close ❌️', callback_data='close')
@@ -261,7 +262,7 @@ async def about_cb(c, m, cb=True):
 🚀 𝐘𝐨𝐮𝐓𝐮𝐛𝐞 𝐂𝐡𝐚𝐧𝐧𝐞𝐥: [𝐌𝐓 𝐁𝐎𝐓](https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ)
 """
 
-    buttons = [[
+     buttons = [[
         InlineKeyboardButton('💡 𝗛𝗲𝗹𝗽', callback_data='help'),
         InlineKeyboardButton('❌ 𝗖𝗹𝗼𝘀𝗲', callback_data='close')
     ]]
