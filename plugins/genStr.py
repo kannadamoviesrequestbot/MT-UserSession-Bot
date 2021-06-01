@@ -195,6 +195,8 @@ If you made any mistake anywhere press /cancel and then press /start
 """
 
     buttons = [[
+        InlineKeyboardButton('How Get UserSession For Website', url='https://youtu.be/WUN_12-dYOM'),
+        ],[
         InlineKeyboardButton('📕 About', callback_data='about'),
         InlineKeyboardButton('❌ Close', callback_data='close')
     ]]
