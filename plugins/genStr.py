@@ -18,24 +18,17 @@ API_TEXT = """🙋‍♂ Hi {},
 **I am a String Session generator bot.**
 **For generating string session send me your** `API_ID` 🐿
 
-**Any Doubt @Mo_Tech_Group**
+**👇Tutorial Video👇**
 
-**Any Help**  /help
-**About Bot** /about
+👉[How To Get Api Id & Api Hash](https://youtu.be/5eEsvLAKVc0)
+
+👉[How To Get UserSession For Website](https://youtu.be/WUN_12-dYOM)
+
+**👤Any Doubt @Mo_Tech_Group**
+
+**🤔Any Help**  /help
+**🤖About Bot** /about
 """
-
-    buttons = [[
-        InlineKeyboardButton('How Get UserSession For Website', url='https://youtu.be/WUN_12-dYOM'),
-        ],[
-        InlineKeyboardButton('📕 About', callback_data='about'),
-        InlineKeyboardButton('❌ Close', callback_data='close')
-    ]]
-    if cb:
-        await m.answer()
-        await m.message.edit(text=api_text, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
-    else:
-        await m.reply_text(text=api_text, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True, quote=True)
-
 
 HASH_TEXT = "Ok Now Send your `API_HASH` to Continue.\n\nPress /cancel to Cancel.🐧"
 PHONE_NUMBER_TEXT = (
