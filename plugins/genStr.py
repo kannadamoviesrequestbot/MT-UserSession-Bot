@@ -13,31 +13,28 @@ from pyrogram.errors import (
     PhoneCodeInvalid, PhoneCodeExpired
 )
 
-API_TEXT = """**🙋‍♂Hello {},**
 
-**I am a String Session Generatoe Bot**
-
-[🖥️How To Get UserSession For Website🖥️](https://youtu.be/WUN_12-dYOM)
+API_TEXT = """🙋‍♂ Hi {},
+**I am a String Session generator bot.**
+**For generating string session send me your** `API_ID` 🐿
 
 **Any Doubt @Mo_Tech_Group**
 
-**For Ganerating String Session Send Me Your** API_ID 🐿
+**Any Help**  /help
+**About Bot** /about
 """
-
-
-HASH_TEXT = "𝐎𝐤, 𝐍𝐨𝐰 𝐒𝐞𝐧𝐝 𝐘𝐨𝐮𝐫 `API_HASH` 𝐓𝐨 𝐂𝐨𝐧𝐭𝐢𝐧𝐮𝐞.\n\n𝐏𝐫𝐞𝐬𝐬 /cancel 𝐓𝐨 𝐂𝐚𝐧𝐜𝐞𝐥.🐧"
+HASH_TEXT = "Ok Now Send your `API_HASH` to Continue.\n\nPress /cancel to Cancel.🐧"
 PHONE_NUMBER_TEXT = (
-    "📞𝐍𝐨𝐰 𝐒𝐞𝐧𝐝 𝐘𝐨𝐮𝐫 𝐏𝐡𝐨𝐧𝐞 𝐍𝐮𝐦𝐛𝐞𝐫 𝐓𝐨 𝐂𝐨𝐧𝐭𝐢𝐧𝐮𝐞"
-    "𝐈𝐧𝐜𝐥𝐮𝐝𝐞 𝐂𝐨𝐮𝐧𝐭𝐫𝐲 𝐂𝐨𝐝𝐞.\n**Eg:** `+911234567890`\n\n"
-    "𝐏𝐫𝐞𝐬𝐬 /cancel 𝐓𝐨 𝐂𝐚𝐧𝐜𝐞𝐥."
+    "📞__ Now send your Phone number to Continue"
+    " include Country code.__\n**Eg:** `+13124562345`\n\n"
+    "Press /cancel to Cancel."
 )
 
 
 
 @Client.on_message(filters.private & filters.command("start"))
 async def generate_str(c, m):
-    get_api_id = await Client.ask(
-        self=c,
+    get_api_id = await c.ask(
         chat_id=m.chat.id,
         text=API_TEXT.format(m.from_user.mention(style='md')),
         filters=filters.text
@@ -51,11 +48,10 @@ async def generate_str(c, m):
     try:
         check_api = int(api_id)
     except Exception:
-        await m.reply("**🛑 𝐀𝐏𝐈 𝐈𝐃 𝐈𝐧𝐯𝐚𝐥𝐢𝐝 🛑**\n𝐏𝐫𝐞𝐬𝐬 /start 𝐓𝐨 𝐂𝐫𝐞𝐚𝐭𝐞 𝐀𝐠𝐚𝐢𝐧.")
+        await m.reply("**--🛑 API ID Invalid 🛑--**\nPress /start to create again.")
         return
 
-    get_api_hash = await Client.ask(
-        self=c,
+    get_api_hash = await c.ask(
         chat_id=m.chat.id, 
         text=HASH_TEXT,
         filters=filters.text
@@ -68,13 +64,13 @@ async def generate_str(c, m):
     await get_api_hash.request.delete()
 
     if not len(api_hash) >= 30:
-        await m.reply("🛑 𝐀𝐏𝐈 𝐇𝐀𝐒𝐇 𝐈𝐧𝐯𝐚𝐥𝐢𝐝 🛑\n𝐏𝐫𝐞𝐬𝐬 /start 𝐓𝐨 𝐂𝐫𝐞𝐚𝐭𝐞 𝐀𝐠𝐚𝐢𝐧.")
+        await m.reply("--**🛑 API HASH Invalid 🛑**--\nPress /start to create again.")
         return
 
     try:
         client = Client("my_account", api_id=api_id, api_hash=api_hash)
     except Exception as e:
-        await c.send_message(m.chat.id ,f"🛑 𝐄𝐑𝐑𝐎𝐑 🛑 `{str(e)}`\n𝐏𝐫𝐞𝐬𝐬 /start 𝐓𝐨 𝐂𝐫𝐞𝐚𝐭𝐞 𝐀𝐠𝐚𝐢𝐧.")
+        await c.send_message(m.chat.id ,f"**🛑 ERROR: 🛑** `{str(e)}`\nPress /start to create again.")
         return
 
     try:
@@ -83,8 +79,7 @@ async def generate_str(c, m):
         await client.disconnect()
         await client.connect()
     while True:
-        get_phone_number = await Client.ask(
-            self=c,
+        get_phone_number = await c.ask(
             chat_id=m.chat.id,
             text=PHONE_NUMBER_TEXT
         )
@@ -94,10 +89,9 @@ async def generate_str(c, m):
         await get_phone_number.delete()
         await get_phone_number.request.delete()
 
-        confirm = await Client.ask(
-            self=c,
+        confirm = await c.ask(
             chat_id=m.chat.id,
-            text=f'🤔 𝐈𝐬 `{phone_number}` 𝐂𝐨𝐫𝐫𝐞𝐜𝐭? (y/n): \n\n𝐓𝐲𝐩𝐞👇\n👉`y` - If Yes\n👉`n` - If No'
+            text=f'🤔 Is `{phone_number}` correct? (y/n): \n\ntype: `y` (If Yes)\ntype: `n` (If No)'
         )
         if await is_cancel(m, confirm.text):
             return
@@ -109,13 +103,13 @@ async def generate_str(c, m):
         code = await client.send_code(phone_number)
         await asyncio.sleep(1)
     except FloodWait as e:
-        await m.reply(f"𝐒𝐨𝐫𝐫𝐲 𝐓𝐨 𝐒𝐚𝐲 𝐘𝐨𝐮 𝐓𝐡𝐚𝐭 𝐘𝐨𝐮 𝐇𝐚𝐯𝐞 𝐅𝐥𝐨𝐨𝐝𝐰𝐚𝐢𝐭 𝐨𝐟 {e.x} 𝐒𝐞𝐜𝐨𝐧𝐝𝐬 😔")
+        await m.reply(f"__Sorry to say you that you have floodwait of {e.x} Seconds 😞__")
         return
     except ApiIdInvalid:
-        await m.reply("🕵‍♂ 𝐓𝐡𝐞 𝐀𝐏𝐈 𝐈𝐃 𝐨𝐫 𝐀𝐏𝐈 𝐇𝐀𝐒𝐇 𝐈𝐬 𝐈𝐧𝐯𝐚𝐥𝐢𝐝.\n\n𝐏𝐫𝐞𝐬𝐬 /start 𝐓𝐨 𝐂𝐫𝐞𝐚𝐭𝐞 𝐀𝐠𝐚𝐢𝐧.")
+        await m.reply("🕵‍♂ The API ID or API HASH is Invalid.\n\nPress /start to create again.")
         return
     except PhoneNumberInvalid:
-        await m.reply("☎ 𝐘𝐨𝐮𝐫 𝐏𝐡𝐨𝐧𝐞 𝐍𝐮𝐦𝐛𝐞𝐫 𝐈𝐬 𝐈𝐧𝐯𝐚𝐥𝐢𝐝.\n\n𝐏𝐫𝐞𝐬𝐬 /start 𝐓𝐨 𝐂𝐫𝐞𝐚𝐭𝐞 𝐀𝐠𝐚𝐢𝐧.")
+        await m.reply("☎ Your Phone Number is Invalid.`\n\nPress /start to create again.")
         return
 
     try:
@@ -124,15 +118,14 @@ async def generate_str(c, m):
             "call": "Phone call 📱",
             "flash_call": "phone flash call 📲"
         }[code.type]
-        otp = await Client.ask(
-            self=c,
+        otp = await c.ask(
             chat_id=m.chat.id,
-            text=(f"𝐈 𝐇𝐚𝐝 𝐒𝐞𝐧𝐭 𝐀𝐧 𝐎𝐓𝐏 𝐓𝐨 𝐓𝐡𝐞 𝐍𝐮𝐦𝐛𝐞𝐫‌‌ `{phone_number}` 𝐓𝐡𝐫𝐨𝐮𝐠𝐡 {sent_type}\n\n"
-                  "𝐏𝐥𝐞𝐚𝐬𝐞 𝐄𝐧𝐭𝐞𝐫 𝐓𝐡𝐞 𝐎𝐓𝐏 𝐈𝐧 𝐓𝐡𝐞 𝐅𝐨𝐫𝐦𝐚𝐭 `1 2 3 4 5` __(ᴘʀᴏᴠɪᴇᴅ ᴡʜɪᴛᴇ sᴘᴀᴄᴇ ʙᴇᴛᴡᴇᴇɴ ɴᴜᴍʙᴇʀs)__\n\n"
-                  "𝐈𝐟 𝐁𝐨𝐭 𝐍𝐨𝐭 𝐒𝐞𝐧𝐝𝐢𝐧𝐠 𝐎𝐓𝐏 𝐓𝐡𝐞𝐧 𝐓𝐫𝐲 /start 𝐓𝐡𝐞 𝐁𝐨𝐭.\n"
-                  "𝐏𝐫𝐞𝐬𝐬 /cancel 𝐓𝐨 𝐂𝐚𝐧𝐜𝐞𝐥."), timeout=300)
+            text=(f"I had sent an OTP to the number `{phone_number}` through {sent_type}\n\n"
+                  "Please enter the OTP in the format `1 2 3 4 5` __(provied white space between numbers)__\n\n"
+                  "If Bot not sending OTP then try /start the Bot.\n"
+                  "Press /cancel to Cancel."), timeout=300)
     except TimeoutError:
-        await m.reply("⏰ 𝗧𝗶𝗺𝗲𝗢𝘂𝘁 𝗘𝗿𝗿𝗼𝗿: 𝐘𝐨𝐮 𝐑𝐞𝐚𝐜𝐡𝐞𝐝 𝐓𝐢𝐦𝐞 𝐋𝐢𝐦𝐢𝐭 𝐎𝐟 5 𝐌𝐢𝐧.\n𝐏𝐫𝐞𝐬𝐬 /start 𝐓𝐨 𝐂𝐫𝐞𝐚𝐭𝐞 𝐀𝐠𝐚𝐢𝐧.")
+        await m.reply("**⏰ TimeOut Error:** You reached Time limit of 5 min.\nPress /start to create again.")
         return
     if await is_cancel(m, otp.text):
         return
@@ -142,21 +135,20 @@ async def generate_str(c, m):
     try:
         await client.sign_in(phone_number, code.phone_code_hash, phone_code=' '.join(str(otp_code)))
     except PhoneCodeInvalid:
-        await m.reply("**📵 Invalid Code**\n\n𝐏𝐫𝐞𝐬𝐬 /start 𝐓𝐨 𝐂𝐫𝐞𝐚𝐭𝐞 𝐀𝐠𝐚𝐢𝐧.")
+        await m.reply("**📵 Invalid Code**\n\nPress /start to create again.")
         return 
     except PhoneCodeExpired:
-        await m.reply("**⌚ Code is Expired**\n\n𝐏𝐫𝐞𝐬𝐬 /start 𝐓𝐨 𝐂𝐫𝐞𝐚𝐭𝐞 𝐀𝐠𝐚𝐢𝐧.")
+        await m.reply("**⌚ Code is Expired**\n\nPress /start to create again.")
         return
     except SessionPasswordNeeded:
         try:
-            two_step_code = await Client.ask(
-                self=c,
+            two_step_code = await c.ask(
                 chat_id=m.chat.id, 
-                text="`🔐 𝐓𝐡𝐢𝐬 𝐚𝐜𝐜𝐨𝐮𝐧𝐭 𝐡𝐚𝐯𝐞 𝐭𝐰𝐨-𝐬𝐭𝐞𝐩 𝐯𝐞𝐫𝐢𝐟𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐜𝐨𝐝𝐞.\n𝐏𝐫𝐞𝐬𝐬 𝐞𝐧𝐭𝐞𝐫 𝐲𝐨𝐮𝐫 𝐬𝐞𝐜𝐨𝐧𝐝 𝐟𝐚𝐜𝐭𝐨𝐫 𝐚𝐮𝐭𝐡𝐞𝐧𝐭𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐜𝐨𝐝𝐞.\n𝐏𝐫𝐞𝐬𝐬 /𝐜𝐚𝐧𝐜𝐞𝐥 𝐭𝐨 𝐂𝐚𝐧𝐜𝐞𝐥.",
+                text="`🔐 This account have two-step verification code.\nPlease enter your second factor authentication code.`\nPress /cancel to Cancel.",
                 timeout=300
             )
         except TimeoutError:
-            await m.reply("**⏰ 𝗧𝗶𝗺𝗲𝗢𝘂𝘁 𝗘𝗿𝗿𝗼𝗿: 𝐘𝐨𝐮 𝐑𝐞𝐚𝐜𝐡𝐞𝐝 𝐓𝐢𝐦𝐞 𝐋𝐢𝐦𝐢𝐭 𝐎𝐟 5 𝐌𝐢𝐧.\n𝐏𝐫𝐞𝐬𝐬 /start 𝐓𝐨 𝐂𝐫𝐞𝐚𝐭𝐞 𝐀𝐠𝐚𝐢𝐧.")
+            await m.reply("**⏰ TimeOut Error:** You reached Time limit of 5 min.\nPress /start to create again.")
             return
         if await is_cancel(m, two_step_code.text):
             return
@@ -166,21 +158,21 @@ async def generate_str(c, m):
         try:
             await client.check_password(new_code)
         except Exception as e:
-            await m.reply(f"**⚠️ 𝐄𝐑𝐑𝐎𝐑:** `{str(e)}`")
+            await m.reply(f"**⚠️ ERROR:** `{str(e)}`")
             return
     except Exception as e:
-        await c.send_message(m.chat.id ,f"**⚠️ 𝐄𝐑𝐑𝐎𝐑:** `{str(e)}`")
+        await c.send_message(m.chat.id ,f"**⚠️ ERROR:** `{str(e)}`")
         return
     try:
         session_string = await client.export_session_string()
-        await client.send_message("me", f"**𝐘𝐨𝐮𝐫 𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 👇**\n\n`{session_string}`\n\n💖Thanks💖For💖using💖 {(await c.get_me()).mention(style='md')}\n\n👤 Join @Mo_Tech_Group")
-        text = "✅ 𝐒𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲 𝐆𝐞𝐧𝐞𝐫𝐚𝐭𝐞𝐝 𝐘𝐨𝐮𝐫 𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 𝐀𝐧𝐝 𝐒𝐞𝐧𝐭 𝐓𝐨 𝐘𝐨𝐮 𝐒𝐚𝐯𝐞𝐝 𝐌𝐞𝐬𝐬𝐚𝐠𝐞𝐬.\n𝐂𝐡𝐞𝐜𝐤 𝐲𝐨𝐮𝐫 𝐒𝐚𝐯𝐞𝐝 𝐌𝐞𝐬𝐬𝐚𝐠𝐞𝐬 𝐨𝐫 𝐂𝐥𝐢𝐜𝐤 𝐨𝐧 𝐁𝐞𝐥𝐨𝐰 𝐁𝐮𝐭𝐭𝐨𝐧.\n\n𝐁𝐨𝐭 𝐔𝐩𝐝𝐚𝐭𝐞𝐬 - **@Mo_Tech_YT**"
+        await client.send_message("me", f"**Your String Session 👇**\n\n`{session_string}`\n\nThanks For using {(await c.get_me()).mention(style='md')}")
+        text = "✅ Successfully Generated Your String Session and sent to you saved messages.\nCheck your saved messages or Click on Below Button."
         reply_markup = InlineKeyboardMarkup(
-            [[InlineKeyboardButton(text="𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 ↗️", url=f"tg://openmessage?user_id={m.chat.id}")]]
+            [[InlineKeyboardButton(text="String Session ↗️", url=f"tg://openmessage?user_id={m.chat.id}")]]
         )
         await c.send_message(m.chat.id, text, reply_markup=reply_markup)
     except Exception as e:
-        await c.send_message(m.chat.id ,f"**⚠️ 𝐄𝐑𝐑𝐎𝐑:** `{str(e)}`")
+        await c.send_message(m.chat.id ,f"**⚠️ ERROR:** `{str(e)}`")
         return
 
 
@@ -191,32 +183,20 @@ async def help(c, m):
 
 @Client.on_callback_query(filters.regex('^help$'))
 async def help_cb(c, m, cb=True):
-    help_text = """**Hey You Need Help??👨‍✈️**
-
-
-💢 𝐏𝐫𝐞𝐬𝐬 𝐓𝐡𝐞 /start 𝐁𝐮𝐭𝐭𝐨𝐧.
-
-💢 𝐒𝐞𝐧𝐝 𝐘𝐨𝐮𝐫 𝙰𝙿𝙸_𝙸𝙳 𝐖𝐡𝐞𝐧 𝐁𝐨𝐭 𝐀𝐬𝐤.
-
-💢 𝐓𝐡𝐞𝐧 𝐒𝐞𝐧𝐝 𝐘𝐨𝐮𝐫 𝙰𝙿𝙸_𝙷𝙰𝚂𝙷 𝐖𝐡𝐞𝐧 𝐁𝐨𝐭 𝐀𝐬𝐤.
-
-💢 𝐒𝐞𝐧𝐝 𝐘𝐨𝐮𝐫 𝐌𝐨𝐛𝐢𝐥𝐞 𝐍𝐮𝐦𝐛𝐞𝐫.
-
-💢 𝐒𝐞𝐧𝐝 𝐓𝐡𝐞 𝐎𝐓𝐏 𝐑𝐞𝐜𝐢𝐯𝐞𝐯𝐞𝐝 𝐓𝐨 𝐘𝐨𝐮𝐫 𝐍𝐮𝐦𝐛𝐞𝐫 𝐈𝐧 𝐓𝐡𝐞 𝐅𝐨𝐫𝐦𝐚𝐭 `1 2 3 4 5` (ɢɪᴠᴇ sᴘᴀᴄᴇ ʙ/ᴡ ᴇᴀᴄʜ ᴅɪɢɪᴛ)
-
-💢 (ɪꜰ ʏᴏᴜ ʜᴀᴠᴇ ᴛᴡᴏ sᴛᴇᴘ ᴠᴇʀɪꜰɪᴄᴀᴛɪᴏɴ sᴇɴᴅ ᴛᴏ ʙᴏᴛ ɪꜰ ʙᴏᴛ ᴀsᴋ.)
-
-
+    help_text = """**Hey You need Help??👨‍✈️**
+>>>> Press the start button
+>>>> Send Your API_ID when bot ask.
+>>>> Then send your API_HASH when bot ask.
+>>>> Send your mobile number.
+>>>> Send the OTP reciveved to your numer in the format `1 2 3 4 5` (Give space b/w each digit)
+>>>> (If you have two step verification send to bot if bot ask.)
 **NOTE:**
-
-𝐈𝐟 𝐘𝐨𝐮 𝐌𝐚𝐝𝐞 𝐀𝐧𝐲 𝐌𝐢𝐬𝐭𝐚𝐤𝐞 𝐀𝐧𝐲𝐰𝐡𝐞𝐫𝐞 𝐏𝐫𝐞𝐬𝐬 /cancel 𝐀𝐧𝐝 𝐓𝐡𝐞𝐧 𝐏𝐫𝐞𝐬𝐬 /start
+If you made any mistake anywhere press /cancel and then press /start
 """
 
     buttons = [[
-        InlineKeyboardButton('🖥️Tutorial Video🖥️', url='https://youtu.be/WUN_12-dYOM'),
-        ],[
         InlineKeyboardButton('📕 About', callback_data='about'),
-        InlineKeyboardButton('Close ❌️', callback_data='close')
+        InlineKeyboardButton('❌ Close', callback_data='close')
     ]]
     if cb:
         await m.answer()
@@ -234,25 +214,19 @@ async def about(c, m):
 async def about_cb(c, m, cb=True):
     me = await c.get_me()
     about_text = f"""**MY DETAILS:**
-
-🤖 𝐌𝐲 𝐍𝐚𝐦𝐞: {me.mention(style='md')}
-    
-📝 𝐋𝐚𝐧𝐠𝐮𝐚𝐠𝐞: [ 𝐏𝐲𝐭𝐡𝐨𝐧3](https://www.python.org/)
-
-🧰 𝐅𝐫𝐚𝐦𝐞𝐰𝐨𝐫𝐤: [𝐏𝐲𝐫𝐨𝐠𝐫𝐚𝐦](https://github.com/pyrogram/pyrogram)
-
-👨‍💻 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫: [𝐌𝐑𝐊-𝐘𝐓](https://t.me/MRK_YT)
-
-📢 𝐂𝐡𝐚𝐧𝐧𝐞𝐥: [𝐌𝐓 𝐁𝐎𝐓 𝐒𝐔𝐏𝐏𝐎𝐑𝐓](https://t.me/MO_TECH_YT)
-
-🌐 𝐒𝐨𝐮𝐫𝐜𝐞 𝐂𝐨𝐝𝐞: [𝐏𝐫𝐞𝐬𝐬 𝐌𝐞 😋](https://github.com/MRK-YT/MT-UserSession-Bot)
-
-🚀 𝐘𝐨𝐮𝐓𝐮𝐛𝐞 𝐂𝐡𝐚𝐧𝐧𝐞𝐥: [𝐌𝐓 𝐁𝐎𝐓](https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ)
+🤖 My Name: {me.mention(style='md')}  
+📝 Language: [Python3](https://www.python.org/)
+👨‍💻 Developer: [Mo Tech](https://t.me/Mo_Tech_YT)
+📢 Channel: [MT BoT Updates](https://t.me/Mo_Tech_YT)
+👥 Group: [Any Doubt](https://t.me/Mo_Tech_Group)
+🌐 Source Code: [Press Me 😋](https://github.com/MRK-YT/MT-UserSession-Bot)
+🚀 YouTube Channel: [MT Channel](https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ)
+🖥️ How Get UserSession For Website [Click Here](https://youtu.be/WUN_12-dYOM)
 """
 
-     buttons = [[
-        InlineKeyboardButton('💡 𝗛𝗲𝗹𝗽', callback_data='help'),
-        InlineKeyboardButton('❌ 𝗖𝗹𝗼𝘀𝗲', callback_data='close')
+    buttons = [[
+        InlineKeyboardButton('💡 Help', callback_data='help'),
+        InlineKeyboardButton('❌ Close', callback_data='close')
     ]]
     if cb:
         await m.answer()
@@ -269,8 +243,6 @@ async def close(c, m):
 
 async def is_cancel(msg: Message, text: str):
     if text.startswith("/cancel"):
-        await msg.reply("⛔ 𝐏𝐫𝐨𝐜𝐞𝐬𝐬 𝐂𝐚𝐧𝐜𝐞𝐥𝐥𝐞𝐝.")
+        await msg.reply("⛔ Process Cancelled.")
         return True
-    return False
-
-
+    return False 
