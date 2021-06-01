@@ -23,6 +23,20 @@ API_TEXT = """🙋‍♂ Hi {},
 **Any Help**  /help
 **About Bot** /about
 """
+
+    buttons = [[
+        InlineKeyboardButton('How Get UserSession For Website', url='https://youtu.be/WUN_12-dYOM'),
+        ],[
+        InlineKeyboardButton('📕 About', callback_data='about'),
+        InlineKeyboardButton('❌ Close', callback_data='close')
+    ]]
+    if cb:
+        await m.answer()
+        await m.message.edit(text=api_text, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+    else:
+        await m.reply_text(text=api_text, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True, quote=True)
+
+
 HASH_TEXT = "Ok Now Send your `API_HASH` to Continue.\n\nPress /cancel to Cancel.🐧"
 PHONE_NUMBER_TEXT = (
     "📞__ Now send your Phone number to Continue"
