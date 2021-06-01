@@ -13,35 +13,10 @@ from pyrogram.errors import (
     PhoneCodeInvalid, PhoneCodeExpired
 )
 
-@Client.on_message(filters.command('start'))
-async def start(c, m):
-
-     # api text
-     text = """🙋‍♂Hello {},
-I am a String Session Generatoe Bot
-
-[🖥️How To Get UserSession For Website🖥️](https://youtu.be/WUN_12-dYOM)
-
-Any Doubt @Mo_Tech_Group
-
-For Ganerating String Session Send Me Your `API_ID` 🐿
-"""
-    buttons = [
-        [
-            InlineKeyboardButton('👨‍💼𝕄𝕪 𝔽𝕒𝕥𝕙𝕖𝕣👨‍💼', url="t.me/mo_tech_yt")
-        ],
-        [
-            InlineKeyboardButton('🤖𝔹𝕠𝕥 𝕌𝕡𝕕𝕒𝕥𝕖', url="t.me/mo_tech_yt"),
-            InlineKeyboardButton('𝕐𝕋 𝕊𝕦𝕡𝕡𝕠𝕣𝕥🎉', url="https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ")
-        ],
-        [
-            InlineKeyboardButton('🖥️ℍ𝕠𝕨 𝕋𝕠 𝕌𝕤𝕖🖥️', url="https://youtu.be/9b9uWNyuk9M")
-        ]
-    ]
-    await m.reply_text(
-        text=text,
-        reply_markup=InlineKeyboardMarkup(buttons)
-    )
+API_TEXT = """✅ 𝐒𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲 𝐆𝐞𝐧𝐞𝐫𝐚𝐭𝐞𝐝 𝐘𝐨𝐮𝐫 𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 𝐀𝐧𝐝 𝐒𝐞𝐧𝐭 𝐓𝐨 𝐘𝐨𝐮 𝐒𝐚𝐯𝐞𝐝 𝐌𝐞𝐬𝐬𝐚𝐠𝐞𝐬.\n𝐂𝐡𝐞𝐜𝐤 𝐲𝐨𝐮𝐫 𝐒𝐚𝐯𝐞𝐝 𝐌𝐞𝐬𝐬𝐚𝐠𝐞𝐬 𝐨𝐫 𝐂𝐥𝐢𝐜𝐤 𝐨𝐧 𝐁𝐞𝐥𝐨𝐰 𝐁𝐮𝐭𝐭𝐨𝐧.\n\n𝐁𝐨𝐭 𝐔𝐩𝐝𝐚𝐭𝐞𝐬 - **@Mo_Tech_YT**"""
+        reply_markup = InlineKeyboardMarkup(
+            [[InlineKeyboardButton(text="𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 ↗️", url="t.me/mo_tech_yy")]]
+        )
 
 
 HASH_TEXT = "𝐎𝐤, 𝐍𝐨𝐰 𝐒𝐞𝐧𝐝 𝐘𝐨𝐮𝐫 `API_HASH` 𝐓𝐨 𝐂𝐨𝐧𝐭𝐢𝐧𝐮𝐞.\n\n𝐏𝐫𝐞𝐬𝐬 /cancel 𝐓𝐨 𝐂𝐚𝐧𝐜𝐞𝐥.🐧"
