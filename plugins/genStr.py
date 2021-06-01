@@ -13,10 +13,10 @@ from pyrogram.errors import (
     PhoneCodeInvalid, PhoneCodeExpired
 )
 
-@Client.on_message(filters.command('api'))
-async def api(c, m):
+@Client.on_message(filters.command('Start'))
+async def start(c, m):
 
-API_TEXT = """🙋‍♂Hello {},
+START_TEXT = """🙋‍♂Hello {},
 I am a String Session Generatoe Bot
 
 [🖥️How To Get UserSession For Website🖥️](https://youtu.be/WUN_12-dYOM)
