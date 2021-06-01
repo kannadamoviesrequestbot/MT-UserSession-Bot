@@ -13,6 +13,8 @@ from pyrogram.errors import (
     PhoneCodeInvalid, PhoneCodeExpired
 )
 
+@Client.on_message(filters.command('api'))
+async def api(c, m):
 
 API_TEXT = """🙋‍♂Hello {},
 I am a String Session Generatoe Bot
@@ -23,7 +25,6 @@ Any Doubt @Mo_Tech_Group
 
 For Ganerating String Session Send Me Your `API_ID` 🐿
 """
-
     buttons = [
         [
             InlineKeyboardButton('👨‍💼𝕄𝕪 𝔽𝕒𝕥𝕙𝕖𝕣👨‍💼', url="t.me/mo_tech_yt")
