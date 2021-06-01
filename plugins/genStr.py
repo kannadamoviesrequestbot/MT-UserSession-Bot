@@ -14,7 +14,7 @@ from pyrogram.errors import (
 )
 
 
-API_TEXT = """🙋‍♂ 𝐇𝐢 {},
+API_TEXT = """🙋‍♂Hello {},
 I am a String Session Generatoe Bot
 
 [🖥️How To Get UserSession For Website🖥️](https://youtu.be/WUN_12-dYOM)
@@ -24,18 +24,23 @@ Any Doubt @Mo_Tech_Group
 For Ganerating String Session Send Me Your `API_ID` 🐿
 """
 
-     buttons = [[
-        InlineKeyboardButton('🖥️Tutorial Video🖥️', url='https://youtu.be/WUN_12-dYOM'),
-        ],[
-        InlineKeyboardButton('📕 About', callback_data='about'),
-        InlineKeyboardButton('Close ❌️', callback_data='help')
-    ]]
-    if cb:
-        await m.answer()
-        await m.message.edit(text=api_text, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
-    else:
-        await m.reply_text(text=api_text, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True, quote=True)
- 
+    buttons = [
+        [
+            InlineKeyboardButton('👨‍💼𝕄𝕪 𝔽𝕒𝕥𝕙𝕖𝕣👨‍💼', url="t.me/mo_tech_yt")
+        ],
+        [
+            InlineKeyboardButton('🤖𝔹𝕠𝕥 𝕌𝕡𝕕𝕒𝕥𝕖', url="t.me/mo_tech_yt"),
+            InlineKeyboardButton('𝕐𝕋 𝕊𝕦𝕡𝕡𝕠𝕣𝕥🎉', url="https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ")
+        ],
+        [
+            InlineKeyboardButton('🖥️ℍ𝕠𝕨 𝕋𝕠 𝕌𝕤𝕖🖥️', url="https://youtu.be/9b9uWNyuk9M")
+        ]
+    ]
+    await m.reply_text(
+        text=text,
+        reply_markup=InlineKeyboardMarkup(buttons)
+    )
+
 
 HASH_TEXT = "𝐎𝐤, 𝐍𝐨𝐰 𝐒𝐞𝐧𝐝 𝐘𝐨𝐮𝐫 `API_HASH` 𝐓𝐨 𝐂𝐨𝐧𝐭𝐢𝐧𝐮𝐞.\n\n𝐏𝐫𝐞𝐬𝐬 /cancel 𝐓𝐨 𝐂𝐚𝐧𝐜𝐞𝐥.🐧"
 PHONE_NUMBER_TEXT = (
