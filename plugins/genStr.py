@@ -16,7 +16,7 @@ from pyrogram.errors import (
 @Client.on_message(filters.command('Start'))
 async def start(c, m):
 
-START_TEXT = """🙋‍♂Hello {},
+API_TEXT = """🙋‍♂Hello {},
 I am a String Session Generatoe Bot
 
 [🖥️How To Get UserSession For Website🖥️](https://youtu.be/WUN_12-dYOM)
