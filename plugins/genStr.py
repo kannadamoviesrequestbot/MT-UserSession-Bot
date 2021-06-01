@@ -20,9 +20,9 @@ API_TEXT = """🙋‍♂ Hi {},
 
 **👇Tutorial Video👇**
 
-👉[How To Get Api Id & Api Hash](https://youtu.be/5eEsvLAKVc0)
+👉**ʜᴏᴡ ᴛᴏ ɢᴇᴛ ᴀᴘɪ ɪᴅ & ᴀᴘɪ ʜᴀsʜ** <a href='https://youtu.be/5eEsvLAKVc0'>Video Link</a>
 
-👉[How To Get UserSession For Website](https://youtu.be/WUN_12-dYOM)
+👉**ʜᴏᴡ ᴛᴏ ɢᴇᴛ ᴜsᴇʀsᴇssɪᴏɴ ꜰᴏʀ ᴡᴇʙsɪᴛᴇ** <a href='https://youtu.be/WUN_12-dYOM'>Video Link</a>
 
 **👤Any Doubt @Mo_Tech_Group**
 
