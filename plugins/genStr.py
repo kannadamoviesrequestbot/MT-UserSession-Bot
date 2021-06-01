@@ -14,8 +14,9 @@ from pyrogram.errors import (
 )
 
 API_TEXT = """✅ 𝐒𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲 𝐆𝐞𝐧𝐞𝐫𝐚𝐭𝐞𝐝 𝐘𝐨𝐮𝐫 𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 𝐀𝐧𝐝 𝐒𝐞𝐧𝐭 𝐓𝐨 𝐘𝐨𝐮 𝐒𝐚𝐯𝐞𝐝 𝐌𝐞𝐬𝐬𝐚𝐠𝐞𝐬.\n𝐂𝐡𝐞𝐜𝐤 𝐲𝐨𝐮𝐫 𝐒𝐚𝐯𝐞𝐝 𝐌𝐞𝐬𝐬𝐚𝐠𝐞𝐬 𝐨𝐫 𝐂𝐥𝐢𝐜𝐤 𝐨𝐧 𝐁𝐞𝐥𝐨𝐰 𝐁𝐮𝐭𝐭𝐨𝐧.\n\n𝐁𝐨𝐭 𝐔𝐩𝐝𝐚𝐭𝐞𝐬 - **@Mo_Tech_YT**"""
-        reply_markup = InlineKeyboardMarkup(
-            [[InlineKeyboardButton(text="𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 ↗️", url="t.me/mo_tech_yy")]]
+        reply_markup
+        InlineKeyboardMarkup(
+        [[InlineKeyboardButton(text="𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 ↗️", url="t.me/mo_tech_yy")]]
         )
 
 
