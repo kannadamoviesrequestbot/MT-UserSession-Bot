@@ -15,15 +15,31 @@ from pyrogram.errors import (
 
 
 API_TEXT = """🙋‍♂ 𝐇𝐢 {},
+I am a String Session Generatoe Bot
 
-𝐈 𝐀𝐦 𝐀 𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 𝐆𝐞𝐧𝐞𝐫𝐚𝐭𝐨𝐫 𝐁𝐨𝐭.
+[🖥️How To Get UserSession For Website🖥️](https://youtu.be/WUN_12-dYOM)
 
-𝐅𝐨𝐫 𝐆𝐞𝐧𝐞𝐫𝐚𝐭𝐢𝐧𝐠 𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 𝐒𝐞𝐧𝐝 𝐌𝐞 𝐘𝐨𝐮𝐫 `API_ID` 🐿
+Any Doubt @Mo_Tech_Group
+
+For Ganerating String Session Send Me Your `API_ID` 🐿
 """
+     buttons = [[
+        InlineKeyboardButton('🖥️Tutorial Video🖥️', url='https://youtu.be/WUN_12-dYOM')
+        ],[
+        InlineKeyboardButton('📕 About', callback_data='about'),
+        InlineKeyboardButton('Close ❌️', callback_data='help')
+    ]]
+    if cb:
+        await m.answer()
+        await m.message.edit(text=api_text, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+    else:
+        await m.reply_text(text=api_text, reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True, quote=True)
+ 
+
 HASH_TEXT = "𝐎𝐤, 𝐍𝐨𝐰 𝐒𝐞𝐧𝐝 𝐘𝐨𝐮𝐫 `API_HASH` 𝐓𝐨 𝐂𝐨𝐧𝐭𝐢𝐧𝐮𝐞.\n\n𝐏𝐫𝐞𝐬𝐬 /cancel 𝐓𝐨 𝐂𝐚𝐧𝐜𝐞𝐥.🐧"
 PHONE_NUMBER_TEXT = (
     "📞𝐍𝐨𝐰 𝐒𝐞𝐧𝐝 𝐘𝐨𝐮𝐫 𝐏𝐡𝐨𝐧𝐞 𝐍𝐮𝐦𝐛𝐞𝐫 𝐓𝐨 𝐂𝐨𝐧𝐭𝐢𝐧𝐮𝐞"
-    "𝐈𝐧𝐜𝐥𝐮𝐝𝐞 𝐂𝐨𝐮𝐧𝐭𝐫𝐲 𝐂𝐨𝐝𝐞.\n**Eg:** `+13124562345`\n\n"
+    "𝐈𝐧𝐜𝐥𝐮𝐝𝐞 𝐂𝐨𝐮𝐧𝐭𝐫𝐲 𝐂𝐨𝐝𝐞.\n**Eg:** `+911234567890`\n\n"
     "𝐏𝐫𝐞𝐬𝐬 /cancel 𝐓𝐨 𝐂𝐚𝐧𝐜𝐞𝐥."
 )
 
@@ -92,7 +108,7 @@ async def generate_str(c, m):
         confirm = await Client.ask(
             self=c,
             chat_id=m.chat.id,
-            text=f'🤔 𝐈𝐬 `{phone_number}` 𝐂𝐨𝐫𝐫𝐞𝐜𝐭? (y/n): \n\n𝐓𝐲𝐩𝐞👇\n`y` (If Yes)\n`n` (If No)'
+            text=f'🤔 𝐈𝐬 `{phone_number}` 𝐂𝐨𝐫𝐫𝐞𝐜𝐭? (y/n): \n\n𝐓𝐲𝐩𝐞👇\n👉`y` - If Yes\n👉`n` - If No'
         )
         if await is_cancel(m, confirm.text):
             return
@@ -168,7 +184,7 @@ async def generate_str(c, m):
         return
     try:
         session_string = await client.export_session_string()
-        await client.send_message("me", f"**𝐘𝐨𝐮𝐫 𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 👇**\n\n`{session_string}`\n\nThanks For using {(await c.get_me()).mention(style='md')}")
+        await client.send_message("me", f"**𝐘𝐨𝐮𝐫 𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 👇**\n\n`{session_string}`\n\n💖Thanks💖For💖using💖 {(await c.get_me()).mention(style='md')}\n\n👤 Join @Mo_Tech_Group")
         text = "✅ 𝐒𝐮𝐜𝐜𝐞𝐬𝐬𝐟𝐮𝐥𝐥𝐲 𝐆𝐞𝐧𝐞𝐫𝐚𝐭𝐞𝐝 𝐘𝐨𝐮𝐫 𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 𝐀𝐧𝐝 𝐒𝐞𝐧𝐭 𝐓𝐨 𝐘𝐨𝐮 𝐒𝐚𝐯𝐞𝐝 𝐌𝐞𝐬𝐬𝐚𝐠𝐞𝐬.\n𝐂𝐡𝐞𝐜𝐤 𝐲𝐨𝐮𝐫 𝐒𝐚𝐯𝐞𝐝 𝐌𝐞𝐬𝐬𝐚𝐠𝐞𝐬 𝐨𝐫 𝐂𝐥𝐢𝐜𝐤 𝐨𝐧 𝐁𝐞𝐥𝐨𝐰 𝐁𝐮𝐭𝐭𝐨𝐧.\n\n𝐁𝐨𝐭 𝐔𝐩𝐝𝐚𝐭𝐞𝐬 - **@Mo_Tech_YT**"
         reply_markup = InlineKeyboardMarkup(
             [[InlineKeyboardButton(text="𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 ↗️", url=f"tg://openmessage?user_id={m.chat.id}")]]
@@ -208,8 +224,10 @@ async def help_cb(c, m, cb=True):
 """
 
     buttons = [[
-        InlineKeyboardButton('📕 𝗔𝗯𝗼𝘂𝘁', callback_data='about'),
-        InlineKeyboardButton('❌ 𝗖𝗹𝗼𝘀𝗲', callback_data='close')
+        InlineKeyboardButton('🖥️Tutorial Video🖥️', url='https://youtu.be/WUN_12-dYOM')
+        ],[
+        InlineKeyboardButton('📕 About', callback_data='about'),
+        InlineKeyboardButton('Close ❌️', callback_data='close')
     ]]
     if cb:
         await m.answer()
