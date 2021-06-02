@@ -14,27 +14,28 @@ from pyrogram.errors import (
 )
 
 
-API_TEXT = """🙋‍♂ Hi {},
+API_TEXT = """🙋‍♂ **Hi {},**
 **I am a String Session generator bot.**
 **For generating string session send me your** `API_ID` 🐿
 
 **👇Tutorial Video👇**
 
-👉**ʜᴏᴡ ᴛᴏ ɢᴇᴛ ᴀᴘɪ ɪᴅ & ᴀᴘɪ ʜᴀsʜ** <a href='https://youtu.be/5eEsvLAKVc0'>Video Link</a>
+👉 [ʜᴏᴡ ᴛᴏ ɢᴇᴛ ᴀᴘɪ ɪᴅ & ᴀᴘɪ ʜᴀsʜ](https://youtu.be/5eEsvLAKVc0)
 
-👉**ʜᴏᴡ ᴛᴏ ɢᴇᴛ ᴜsᴇʀsᴇssɪᴏɴ ꜰᴏʀ ᴡᴇʙsɪᴛᴇ** <a href='https://youtu.be/WUN_12-dYOM'>Video Link</a>
+👉 [ʜᴏᴡ ᴛᴏ ɢᴇᴛ ᴜsᴇʀsᴇssɪᴏɴ ꜰᴏʀ ᴡᴇʙsɪᴛᴇ**https://youtu.be/WUN_12-dYOM)
 
 **👤Any Doubt @Mo_Tech_Group**
 
 **🤔Any Help**  /help
+
 **🤖About Bot** /about
 """
 
 HASH_TEXT = "Ok Now Send your `API_HASH` to Continue.\n\nPress /cancel to Cancel.🐧"
 PHONE_NUMBER_TEXT = (
-    "📞__ Now send your Phone number to Continue"
-    " include Country code.__\n**Eg:** `+13124562345`\n\n"
-    "Press /cancel to Cancel."
+    "**📞Now send your Phone number to Continue**"
+    "**include Country code.**\n\n**Eg:** `+9112345678910`\n\n"
+    "**Press /cancel to Cancel😔.**"
 )
 
 
@@ -55,7 +56,7 @@ async def generate_str(c, m):
     try:
         check_api = int(api_id)
     except Exception:
-        await m.reply("**--🛑 API ID Invalid 🛑--**\nPress /start to create again.")
+        await m.reply("**--🛑 API ID Invalid 🛑--**\n**Press /start to create again😔**.")
         return
 
     get_api_hash = await c.ask(
@@ -71,7 +72,7 @@ async def generate_str(c, m):
     await get_api_hash.request.delete()
 
     if not len(api_hash) >= 30:
-        await m.reply("--**🛑 API HASH Invalid 🛑**--\nPress /start to create again.")
+        await m.reply("--**🛑 API HASH Invalid 🛑**--\n**Press /start to create again.**😔")
         return
 
     try:
@@ -98,7 +99,7 @@ async def generate_str(c, m):
 
         confirm = await c.ask(
             chat_id=m.chat.id,
-            text=f'🤔 Is `{phone_number}` correct? (y/n): \n\ntype: `y` (If Yes)\ntype: `n` (If No)'
+            text=f'🤔 Is `{phone_number}` correct? (y/n): \n\n👇type:👇\n👉`Y` - If Yes\n👉`N` - If No'
         )
         if await is_cancel(m, confirm.text):
             return
@@ -172,8 +173,8 @@ async def generate_str(c, m):
         return
     try:
         session_string = await client.export_session_string()
-        await client.send_message("me", f"**Your String Session 👇**\n\n`{session_string}`\n\nThanks For using {(await c.get_me()).mention(style='md')}")
-        text = "✅ Successfully Generated Your String Session and sent to you saved messages.\nCheck your saved messages or Click on Below Button."
+        await client.send_message("me", f"**Your String Session 👇**\n\n`{session_string}`\n\n**Thanks For using**\n\n**👤Any Doubt @Mo_Tech_YT** {(await c.get_me()).mention(style='md')}")
+        text = "**✅ Successfully Generated Your String Session and sent to you saved messages.\nCheck your saved messages or Click on Below Button.**\n\n**🤖Bot Updates @Mo_Tech_YT**"
         reply_markup = InlineKeyboardMarkup(
             [[InlineKeyboardButton(text="String Session ↗️", url=f"tg://openmessage?user_id={m.chat.id}")]]
         )
@@ -191,14 +192,15 @@ async def help(c, m):
 @Client.on_callback_query(filters.regex('^help$'))
 async def help_cb(c, m, cb=True):
     help_text = """**Hey You need Help??👨‍✈️**
->>>> Press the start button
->>>> Send Your API_ID when bot ask.
->>>> Then send your API_HASH when bot ask.
->>>> Send your mobile number.
->>>> Send the OTP reciveved to your numer in the format `1 2 3 4 5` (Give space b/w each digit)
->>>> (If you have two step verification send to bot if bot ask.)
-**NOTE:**
-If you made any mistake anywhere press /cancel and then press /start
+
+>>>> **Press the start button**\n
+>>>> **Send Your API_ID when bot ask.**\n
+>>>> **Then send your API_HASH when bot ask.**\n
+>>>> **Send your mobile number.**\n
+>>>> **Send the OTP reciveved to your numer in the format** `1 2 3 4 5` (Give space b/w each digit)**\n
+>>>> **(If you have two step verification send to bot if bot ask.)**\n
+\n**NOTE:**
+\n**If you made any mistake anywhere press /cancel and then press /start**\n\n🖥️Watch Tutorial Video Button Below👇
 """
 
     buttons = [[
@@ -222,18 +224,25 @@ async def about(c, m):
 @Client.on_callback_query(filters.regex('^about$'))
 async def about_cb(c, m, cb=True):
     me = await c.get_me()
-    about_text = f"""**MY DETAILS:**
-🤖 My Name: {me.mention(style='md')}  
-📝 Language: [Python3](https://www.python.org/)
-👨‍💻 Developer: [Mo Tech](https://t.me/Mo_Tech_YT)
-📢 Channel: [MT BoT Updates](https://t.me/Mo_Tech_YT)
-👥 Group: [Any Doubt](https://t.me/Mo_Tech_Group)
-🌐 Source Code: [Press Me 😋](https://github.com/MRK-YT/MT-UserSession-Bot)
-🚀 YouTube Channel: [MT Channel](https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ)
-🖥️ How Get UserSession For Website [Click Here](https://youtu.be/WUN_12-dYOM)
+    about_text = f"""**📃MY DETAILS:**
+\n🤖 **My Name:** {me.mention(style='md')}  
+\n📝 **Language:** [Python3](https://www.python.org/)
+\n👨‍💻 **Developer:** [Mo Tech](https://t.me/Mo_Tech_YT)
+\n📢 **Channel:** [MT BoT Updates](https://t.me/Mo_Tech_YT)
+\n👥 **Group:** [Any Doubt](https://t.me/Mo_Tech_Group)
+\n🌐 **Source Code:** [Press Me 😋](https://github.com/MRK-YT/MT-UserSession-Bot)
+\n🚀 **YouTube Channel:** [MT Channel](https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ)
+\n🖥️ 1:- [How Get UserSession For Website](https://youtu.be/WUN_12-dYOM)
+\n🖥️ 2:- [How To Get Api Id And Api Hash](https://youtu.be/5eEsvLAKVc0)
 """
 
     buttons = [[
+        InlineKeyboardButton(Tutorial-1', url='https://youtu.be/WUN_12-dYOM'),
+        InlineKeyboardButton(Tutorial-2', url='https://youtu.be/5eEsvLAKVc0'),
+        ],[
+        InlineKeyboardButton(👤Any Doubt', url='https://t.me/Mo_Tech_Group'),
+        InlineKeyboardButton(🤖Bot Updates', url='https://t.me/Mo_Tech_Group'),
+        ],[
         InlineKeyboardButton('💡 Help', callback_data='help'),
         InlineKeyboardButton('❌ Close', callback_data='close')
     ]]
@@ -252,6 +261,6 @@ async def close(c, m):
 
 async def is_cancel(msg: Message, text: str):
     if text.startswith("/cancel"):
-        await msg.reply("⛔ Process Cancelled.")
+        await msg.reply("⛔ Process Cancelled.\n\n**👤Any Doubt @Mo_Tech_Group**")
         return True
     return False 
