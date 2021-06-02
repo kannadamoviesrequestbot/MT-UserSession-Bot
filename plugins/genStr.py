@@ -20,9 +20,9 @@ API_TEXT = """🙋‍♂ **Hi {},**
 
 **👇Tutorial Video👇**
 
-👉 [ʜᴏᴡ ᴛᴏ ɢᴇᴛ ᴀᴘɪ ɪᴅ & ᴀᴘɪ ʜᴀsʜ](https://youtu.be/5eEsvLAKVc0)
+👉 **[ʜᴏᴡ ᴛᴏ ɢᴇᴛ ᴀᴘɪ ɪᴅ & ᴀᴘɪ ʜᴀsʜ](https://youtu.be/5eEsvLAKVc0)
 
-👉 [ʜᴏᴡ ᴛᴏ ɢᴇᴛ ᴜsᴇʀsᴇssɪᴏɴ ꜰᴏʀ ᴡᴇʙsɪᴛᴇ**https://youtu.be/WUN_12-dYOM)
+👉 [ʜᴏᴡ ᴛᴏ ɢᴇᴛ ᴜsᴇʀsᴇssɪᴏɴ ꜰᴏʀ ᴡᴇʙsɪᴛᴇ](https://youtu.be/WUN_12-dYOM)**
 
 **👤Any Doubt @Mo_Tech_Group**
 
@@ -31,7 +31,7 @@ API_TEXT = """🙋‍♂ **Hi {},**
 **🤖About Bot** /about
 """
 
-HASH_TEXT = "Ok Now Send your `API_HASH` to Continue.\n\nPress /cancel to Cancel.🐧"
+HASH_TEXT = "**Ok Now Send your** `API_HASH` **to Continue.\n\nPress /cancel to Cancel.🐧**"
 PHONE_NUMBER_TEXT = (
     "**📞Now send your Phone number to Continue**"
     "**include Country code.**\n\n**Eg:** `+9112345678910`\n\n"
@@ -193,18 +193,24 @@ async def help(c, m):
 async def help_cb(c, m, cb=True):
     help_text = """**Hey You need Help??👨‍✈️**
 
->>>> **Press the start button**\n
->>>> **Send Your API_ID when bot ask.**\n
->>>> **Then send your API_HASH when bot ask.**\n
->>>> **Send your mobile number.**\n
->>>> **Send the OTP reciveved to your numer in the format** `1 2 3 4 5` (Give space b/w each digit)**\n
->>>> **(If you have two step verification send to bot if bot ask.)**\n
-\n**NOTE:**
-\n**If you made any mistake anywhere press /cancel and then press /start**\n\n🖥️Watch Tutorial Video Button Below👇
+**>>>> press the start button\n
+>>>> Send Your API_ID when bot ask.\n
+>>>> Then send your API_HASH when bot ask.\n
+>>>> Send your mobile number.\n
+>>>> Send the OTP reciveved to your numer in the format** `1 2 3 4 5` **(Give space b/w each digit)\n
+>>>> (If you have two step verification send to bot if bot ask.)\n
+\nNOTE:
+\nIf you made any mistake anywhere press /cancel and then press /start\n\nWatch Tutorial Video Button Below👇**
 """
 
     buttons = [[
-        InlineKeyboardButton('How Get UserSession For Website', url='https://youtu.be/WUN_12-dYOM'),
+        InlineKeyboardButton('Tutorial-1', url='https://youtu.be/WUN_12-dYOM'),
+        InlineKeyboardButton('Tutorial-2', url='https://youtu.be/5eEsvLAKVc0'),
+        ],[
+        InlineKeyboardButton('👤Any Doubt', url='https://t.me/Mo_Tech_Group'),
+        InlineKeyboardButton('🤖Bot Updates', url='https://t.me/Mo_Tech_Group'),
+        ],[
+        InlineKeyboardButton('💥Subscribers YT Channel💥', url='https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ'),
         ],[
         InlineKeyboardButton('📕 About', callback_data='about'),
         InlineKeyboardButton('❌ Close', callback_data='close')
@@ -242,6 +248,8 @@ async def about_cb(c, m, cb=True):
         ],[
         InlineKeyboardButton('👤Any Doubt', url='https://t.me/Mo_Tech_Group'),
         InlineKeyboardButton('🤖Bot Updates', url='https://t.me/Mo_Tech_Group'),
+        ],[
+        InlineKeyboardButton('💥Subscribers YT Channel💥', url='https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ'),
         ],[
         InlineKeyboardButton('💡 Help', callback_data='help'),
         InlineKeyboardButton('❌ Close', callback_data='close')
