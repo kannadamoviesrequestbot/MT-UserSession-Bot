@@ -238,7 +238,7 @@ async def about_cb(c, m, cb=True):
 
     buttons = [[
         InlineKeyboardButton('Tutorial-1', url='https://youtu.be/WUN_12-dYOM'),
-        InlineKeyboardButton(Tutorial-2', url='https://youtu.be/5eEsvLAKVc0'),
+        InlineKeyboardButton('Tutorial-2', url='https://youtu.be/5eEsvLAKVc0'),
         ],[
         InlineKeyboardButton('👤Any Doubt', url='https://t.me/Mo_Tech_Group'),
         InlineKeyboardButton('🤖Bot Updates', url='https://t.me/Mo_Tech_Group'),
