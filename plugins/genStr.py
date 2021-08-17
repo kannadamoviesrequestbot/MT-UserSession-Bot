@@ -200,17 +200,17 @@ async def help_cb(c, m, cb=True):
 >>>> Send the OTP reciveved to your numer in the format** `1 2 3 4 5` **(Give space b/w each digit)\n
 >>>> (If you have two step verification send to bot if bot ask.)\n
 \nNOTE:
-\nIf you made any mistake anywhere press /cancel and then press /start\n\nWatch Tutorial Video Button Below👇**
+\nIf you made any mistake anywhere press /cancel and then press /start\n\n🥰**
 """
 
     buttons = [[
-        InlineKeyboardButton('Tutorial-1', url='https://youtu.be/WUN_12-dYOM'),
-        InlineKeyboardButton('Tutorial-2', url='https://youtu.be/5eEsvLAKVc0'),
+        InlineKeyboardButton('Tutorial-1', url='https://t.me/KANNADAMOVIES_17'),
+        InlineKeyboardButton('Tutorial-2', url='https://t.me/searchkannadamovies'),
         ],[
-        InlineKeyboardButton('👤Any Doubt', url='https://t.me/Mo_Tech_Group'),
-        InlineKeyboardButton('🤖Bot Updates', url='https://t.me/Mo_Tech_Group'),
+        InlineKeyboardButton('👤Any Doubt', url='https://t.me/KANNADAMOVIES_17'),
+        InlineKeyboardButton('🤖Bot Updates', url='https://t.me/searchkannadamovies'),
         ],[
-        InlineKeyboardButton('💥Subscribers YT Channel💥', url='https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ'),
+        InlineKeyboardButton('💥Join my Channel💥', url='https://t.me/KANNADAMOVIES_17'),
         ],[
         InlineKeyboardButton('📕 About', callback_data='about'),
         InlineKeyboardButton('❌ Close', callback_data='close')
@@ -233,23 +233,23 @@ async def about_cb(c, m, cb=True):
     about_text = f"""**📃MY DETAILS:**
 \n🤖 **My Name:** {me.mention(style='md')}  
 \n📝 **Language:** [Python3](https://www.python.org/)
-\n👨‍💻 **Developer:** [Mo Tech](https://t.me/Mo_Tech_YT)
-\n📢 **Channel:** [MT BoT Updates](https://t.me/Mo_Tech_YT)
-\n👥 **Group:** [Any Doubt](https://t.me/Mo_Tech_Group)
-\n🌐 **Source Code:** [Press Me 😋](https://github.com/MRK-YT/MT-UserSession-Bot)
-\n🚀 **YouTube Channel:** [MT Channel](https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ)
-\n🖥️ 1:- [How Get UserSession For Website](https://youtu.be/WUN_12-dYOM)
-\n🖥️ 2:- [How To Get Api Id And Api Hash](https://youtu.be/5eEsvLAKVc0)
+\n👨‍💻 **Developer:** [beereshbanakards](https://t.me/beereshbanakards)
+\n📢 **Channel:** [BoT Updates](https://t.me/searchkannadamovies)
+\n👥 **Group:** [Any Doubt](https://t.me/KANNADAMOVIES_17)
+\n🌐 **Source Code:** [Press Me 😋](https://t.me/KANNADAMOVIES_17)
+\n🚀 **YouTube Channel:** [MT Channel](https://t.me/searchkannadamovies)
+\n🖥️ 1:- [How Get UserSession For Website](https://t.me/KANNADAMOVIES_17)
+\n🖥️ 2:- [How To Get Api Id And Api Hash](https://t.me/searchkannadamovies)
 """
 
     buttons = [[
-        InlineKeyboardButton('Tutorial-1', url='https://youtu.be/WUN_12-dYOM'),
-        InlineKeyboardButton('Tutorial-2', url='https://youtu.be/5eEsvLAKVc0'),
+        InlineKeyboardButton('Tutorial-1', url='https://t.me/KANNADAMOVIES_17'),
+        InlineKeyboardButton('Tutorial-2', url='https://t.me/searchkannadamovies'),
         ],[
-        InlineKeyboardButton('👤Any Doubt', url='https://t.me/Mo_Tech_Group'),
-        InlineKeyboardButton('🤖Bot Updates', url='https://t.me/Mo_Tech_Group'),
+        InlineKeyboardButton('👤Any Doubt', url='https://t.me/KANNADAMOVIES_17'),
+        InlineKeyboardButton('🤖Bot Updates', url='https://t.me/searchkannadamovies'),
         ],[
-        InlineKeyboardButton('💥Subscribers YT Channel💥', url='https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ'),
+        InlineKeyboardButton('💥Join my Channel💥', url='https://t.me/KANNADAMOVIES_17'),
         ],[
         InlineKeyboardButton('💡 Help', callback_data='help'),
         InlineKeyboardButton('❌ Close', callback_data='close')
