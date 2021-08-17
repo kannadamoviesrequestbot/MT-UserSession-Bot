@@ -173,8 +173,8 @@ async def generate_str(c, m):
         return
     try:
         session_string = await client.export_session_string()
-        await client.send_message("me", f"**Your String Session 👇**\n\n`{session_string}`\n\n**Thanks For using**\n\n**👤Any Doubt @Mo_Tech_YT** {(await c.get_me()).mention(style='md')}")
-        text = "**✅ Successfully Generated Your String Session and sent to you saved messages.\nCheck your saved messages or Click on Below Button.**\n\n**🤖Bot Updates @Mo_Tech_YT**"
+        await client.send_message("me", f"**Your String Session 👇**\n\n`{session_string}`\n\n**Thanks For using**\n\n**👤Any Doubt @KANNADAMOVIES_17** {(await c.get_me()).mention(style='md')}")
+        text = "**✅ Successfully Generated Your String Session and sent to you saved messages.\nCheck your saved messages or Click on Below Button.**\n\n**MOVIES Updates @KANNADAMOVIES_17**"
         reply_markup = InlineKeyboardMarkup(
             [[InlineKeyboardButton(text="String Session ↗️", url=f"tg://openmessage?user_id={m.chat.id}")]]
         )
