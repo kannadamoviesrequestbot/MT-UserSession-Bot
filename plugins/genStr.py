@@ -20,11 +20,11 @@ API_TEXT = """🙋‍♂ **Hi {},**
 
 **👇Tutorial Video👇**
 
-👉 **[ʜᴏᴡ ᴛᴏ ɢᴇᴛ ᴀᴘɪ ɪᴅ & ᴀᴘɪ ʜᴀsʜ](https://youtu.be/5eEsvLAKVc0)
+👉 **[JOIN MY CHANNEL](https://t.me/KANNADAMOVIES_17)
 
-👉 [ʜᴏᴡ ᴛᴏ ɢᴇᴛ ᴜsᴇʀsᴇssɪᴏɴ ꜰᴏʀ ᴡᴇʙsɪᴛᴇ](https://youtu.be/WUN_12-dYOM)**
+👉 [Join my Group](https://t.me/searchkannadamovies)**
 
-**👤Any Doubt @Mo_Tech_Group**
+**👤Any Doubt @KANNADAMOVIES_17**
 
 **🤔Any Help**  /help
 
@@ -269,6 +269,6 @@ async def close(c, m):
 
 async def is_cancel(msg: Message, text: str):
     if text.startswith("/cancel"):
-        await msg.reply("⛔ Process Cancelled.\n\n**👤Any Doubt @Mo_Tech_Group**")
+        await msg.reply("⛔ Process Cancelled.\n\n**👤Any Doubt @KANNADAMOVIES_17)
         return True
     return False 
