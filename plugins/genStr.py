@@ -18,13 +18,13 @@ API_TEXT = """🙋‍♂ **Hi {},**
 **I am a String Session generator bot.**
 **For generating string session send me your** `API_ID` 🐿
 
-**👇Tutorial Video👇**
+**👇JOIN MY CHANNEL👇**
 
 👉 **[JOIN MY CHANNEL](https://t.me/KANNADAMOVIES_17)
 
 👉 [Join my Group](https://t.me/searchkannadamovies)**
 
-**👤Any Doubt @KANNADAMOVIES_17**
+**👤THIS IS MADE BY❤ @KANNADAMOVIES_17**
 
 **🤔Any Help**  /help
 
@@ -204,11 +204,11 @@ async def help_cb(c, m, cb=True):
 """
 
     buttons = [[
-        InlineKeyboardButton('Tutorial-1', url='https://t.me/KANNADAMOVIES_17'),
-        InlineKeyboardButton('Tutorial-2', url='https://t.me/searchkannadamovies'),
+        InlineKeyboardButton('JOIN MY CHANNEL', url='https://t.me/KANNADAMOVIES_17'),
+        InlineKeyboardButton('JOIN MY GROUP', url='https://t.me/searchkannadamovies'),
         ],[
         InlineKeyboardButton('👤Any Doubt', url='https://t.me/KANNADAMOVIES_17'),
-        InlineKeyboardButton('🤖Bot Updates', url='https://t.me/searchkannadamovies'),
+        InlineKeyboardButton('CHANNEL Updates', url='https://t.me/searchkannadamovies'),
         ],[
         InlineKeyboardButton('💥Join my Channel💥', url='https://t.me/KANNADAMOVIES_17'),
         ],[
@@ -234,20 +234,20 @@ async def about_cb(c, m, cb=True):
 \n🤖 **My Name:** {me.mention(style='md')}  
 \n📝 **Language:** [Python3](https://www.python.org/)
 \n👨‍💻 **Developer:** [beereshbanakards](https://t.me/beereshbanakards)
-\n📢 **Channel:** [BoT Updates](https://t.me/searchkannadamovies)
+\n📢 **Channel:** [CHANNEL Updates](https://t.me/searchkannadamovies)
 \n👥 **Group:** [Any Doubt](https://t.me/KANNADAMOVIES_17)
 \n🌐 **Source Code:** [Press Me 😋](https://t.me/KANNADAMOVIES_17)
-\n🚀 **YouTube Channel:** [MT Channel](https://t.me/searchkannadamovies)
-\n🖥️ 1:- [How Get UserSession For Website](https://t.me/KANNADAMOVIES_17)
-\n🖥️ 2:- [How To Get Api Id And Api Hash](https://t.me/searchkannadamovies)
+\n🚀 **MY Channel:** [KANNADAMOVIES_17](https://t.me/searchkannadamovies)
+\n 1:- [JOIN AND SUPPORT](https://t.me/KANNADAMOVIES_17)
+\n 2:- [THIS BOT IS MADE BY❤ @KANNADAMOVIES_17](https://t.me/searchkannadamovies)
 """
 
     buttons = [[
-        InlineKeyboardButton('Tutorial-1', url='https://t.me/KANNADAMOVIES_17'),
-        InlineKeyboardButton('Tutorial-2', url='https://t.me/searchkannadamovies'),
+        InlineKeyboardButton('Join my Channel', url='https://t.me/KANNADAMOVIES_17'),
+        InlineKeyboardButton('Join my Group', url='https://t.me/searchkannadamovies'),
         ],[
         InlineKeyboardButton('👤Any Doubt', url='https://t.me/KANNADAMOVIES_17'),
-        InlineKeyboardButton('🤖Bot Updates', url='https://t.me/searchkannadamovies'),
+        InlineKeyboardButton('channel Updates', url='https://t.me/searchkannadamovies'),
         ],[
         InlineKeyboardButton('💥Join my Channel💥', url='https://t.me/KANNADAMOVIES_17'),
         ],[
