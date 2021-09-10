@@ -24,7 +24,7 @@ API_TEXT = """🙋‍♂ **Hi {},**
 
 👉 [JOIN MY GROUP](https://t.me/searchkannadamovies)**
 
-**👤THIS IS MADE BY❤ @KANNADAMOVIES_17**
+**👤THIS IS MADE BY❤ @BAGURUJOINAGUUKANNADAMOVIES_17**
 
 **🤔Any Help**  /help
 
@@ -56,7 +56,7 @@ async def generate_str(c, m):
     try:
         check_api = int(api_id)
     except Exception:
-        await m.reply("**--🛑 API ID Invalid 🛑--**\n**Press /start to create again😔**.")
+        await m.reply("**--😜 API ID Invalid 🤣--**\n**Press /start to create again😔**.")
         return
 
     get_api_hash = await c.ask(
@@ -72,13 +72,13 @@ async def generate_str(c, m):
     await get_api_hash.request.delete()
 
     if not len(api_hash) >= 30:
-        await m.reply("--**🛑 API HASH Invalid 🛑**--\n**Press /start to create again.**😔")
+        await m.reply("--**😜 API HASH Invalid 🤣**--\n**Press /start to create again.**😔")
         return
 
     try:
         client = Client("my_account", api_id=api_id, api_hash=api_hash)
     except Exception as e:
-        await c.send_message(m.chat.id ,f"**🛑 ERROR: 🛑** `{str(e)}`\nPress /start to create again.")
+        await c.send_message(m.chat.id ,f"**🤣 ERROR: 😜** `{str(e)}`\nPress /start to create again.")
         return
 
     try:
@@ -204,13 +204,13 @@ async def help_cb(c, m, cb=True):
 """
 
     buttons = [[
-        InlineKeyboardButton('JOIN MY CHANNEL', url='https://t.me/KANNADAMOVIES_17'),
+        InlineKeyboardButton('JOIN MY CHANNEL', url='https://t.me/BAGURUJOINAGUUKANNADAMOVIES_17'),
         InlineKeyboardButton('JOIN MY GROUP', url='https://t.me/searchkannadamovies'),
         ],[
-        InlineKeyboardButton('👤Any Doubt', url='https://t.me/KANNADAMOVIES_17'),
+        InlineKeyboardButton('👤Any Doubt', url='https://t.me/BAGURUJOINAGUUKANNADAMOVIES_17'),
         InlineKeyboardButton('CHANNEL Updates', url='https://t.me/searchkannadamovies'),
         ],[
-        InlineKeyboardButton('💥Join my Channel💥', url='https://t.me/KANNADAMOVIES_17'),
+        InlineKeyboardButton('💥Join my Channel💥', url='https://t.me/BAGURUJOINAGUUKANNADAMOVIES_17'),
         ],[
         InlineKeyboardButton('📕 About', callback_data='about'),
         InlineKeyboardButton('❌ Close', callback_data='close')
@@ -236,20 +236,20 @@ async def about_cb(c, m, cb=True):
 \n👨‍💻 **Developer:** [beereshbanakards](https://t.me/beereshbanakards)
 \n📢 **Channel:** [CHANNEL Updates](https://t.me/searchkannadamovies)
 \n👥 **Group:** [Any Doubt](https://t.me/KANNADAMOVIES_17)
-\n🌐 **Source Code:** [Press Me 😋](https://t.me/KANNADAMOVIES_17)
+\n🌐 **Source Code:** [Press Me 😋](https://t.me/BAGURUJOINAGUUKANNADAMOVIES_17)
 \n🚀 **MY Channel:** [KANNADAMOVIES_17](https://t.me/searchkannadamovies)
 \n 1:- [JOIN AND SUPPORT](https://t.me/KANNADAMOVIES_17)
-\n 2:- [THIS BOT IS MADE BY❤ @KANNADAMOVIES_17](https://t.me/searchkannadamovies)
+\n 2:- [THIS BOT IS MADE BY❤ @BAGURUJOINAGUUKANNADAMOVIES_17](https://t.me/searchkannadamovies)
 """
 
     buttons = [[
-        InlineKeyboardButton('Join my Channel', url='https://t.me/KANNADAMOVIES_17'),
+        InlineKeyboardButton('Join my Channel', url='https://t.me/BAGURUJOINAGUUKANNADAMOVIES_17'),
         InlineKeyboardButton('Join my Group', url='https://t.me/searchkannadamovies'),
         ],[
-        InlineKeyboardButton('👤Any Doubt', url='https://t.me/KANNADAMOVIES_17'),
+        InlineKeyboardButton('👤Any Doubt', url='https://t.me/BAGURUJOINAGUUKANNADAMOVIES_17'),
         InlineKeyboardButton('channel Updates', url='https://t.me/searchkannadamovies'),
         ],[
-        InlineKeyboardButton('💥Join my Channel💥', url='https://t.me/KANNADAMOVIES_17'),
+        InlineKeyboardButton('💥Join my Channel💥', url='https://t.me/BAGURUJOINAGUUKANNADAMOVIES_17'),
         ],[
         InlineKeyboardButton('💡 Help', callback_data='help'),
         InlineKeyboardButton('❌ Close', callback_data='close')
@@ -269,6 +269,7 @@ async def close(c, m):
 
 async def is_cancel(msg: Message, text: str):
     if text.startswith("/cancel"):
-        await msg.reply("⛔ Process Cancelled.\n\n**👤Any Doubt @KANNADAMOVIES_17**")
+        await msg.reply("⛔ Process Cancelled.\n\n**👤Any Doubt Join my channel💝
+@BAGURUJOINAGUUKANNADAMOVIES_17**")
         return True
     return False 
