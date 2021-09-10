@@ -20,7 +20,7 @@ API_TEXT = """🙋‍♂ **Hi {},**
 
 **👇JOIN MY CHANNEL👇**
 
-👉 **[JOIN MY CHANNEL](https://t.me/KANNADAMOVIES_17)
+👉 **[JOIN MY CHANNEL](https://t.me/BAGURUJOINAGUUKANNADAMOVIES_17)
 
 👉 [JOIN MY GROUP](https://t.me/searchkannadamovies)**
 
